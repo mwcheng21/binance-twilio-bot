@@ -49,29 +49,29 @@ def incoming_sms():
     try:
         if action.upper() == 'BUY':
             if (len(body.split()) < 3):
-                resp.message("Please enter a coin and a number of coins to buy. The format is BUY <coin> <number>")
+                resp.message("Please enter a coin and a number of coins to buy. The format is BUY <coin> <amount>")
             amountBought, amountLeft = binance.buy(coin, number)
             price = binance.getPrice(coin) * amountBought
             resp.message("Bought {amountBought} {coin} for {price} USDT. {amountLeft} USDT left.")
         elif action.upper() == 'SELL':
             if (len(body.split()) < 3):
-                resp.message("Please enter a coin and a number of coins to buy. The format is BUY <coin> <number>")
+                resp.message("Please enter a coin and a number of coins to buy. The format is BUY <coin> <amount>")
             amountSold, amountLeft = binance.sell(coin, number)
             resp.message(f"SOLD {amountSold} {coin}. You have {amountLeft} left.")
         elif action.upper() == 'GET':
             if (len(body.split()) < 3):
-                resp.message("Please enter a coin and a number of coins to buy. The format is BUY <coin> <number>")
+                resp.message("Please enter a coin and a number of coins to buy. The format is BUY <coin> <amount>")
             price = binance.getPrice(coin)
             resp.message("Current Price of {coin} is {price}")
         elif action.upper() == 'BALANCE':
             if (len(body.split()) < 3):
-                resp.message("Please enter a coin and a number of coins to buy. The format is BUY <coin> <number>")
+                resp.message("Please enter a coin and a number of coins to buy. The format is BUY <coin> <amount>")
             balance = binance.getBalance(coin)
             resp.message(f"You have {balance} {coin}")
         else:
-            resp.message("Please enter a valid action.\n Buy coin: BUY <coin> <number>\n Sell coin: SELL <coin> <number>\n Get price: GET <coin>\n Get balance: BALANCE <coin>")
+            resp.message("Please enter a valid action.\n Buy coin: BUY <coin> <amount>\n Sell coin: SELL <coin> <amount>\n Get price: GET <coin>\n Get balance: BALANCE <coin>")
     except:
-        resp.message("Please enter a valid action.\n Buy coin: BUY <coin> <number>\n Sell coin: SELL <coin> <number>\n Get price: GET <coin>\n Get balance: BALANCE <coin>")
+        resp.message("Please enter a valid action.\n Buy coin: BUY <coin> <amount>\n Sell coin: SELL <coin> <amount>\n Get price: GET <coin>\n Get balance: BALANCE <coin>")
 
     return str(resp)
 
