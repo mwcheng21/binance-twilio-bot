@@ -1,5 +1,7 @@
 # Crypto Text Trader	
-Trade crypto from your phone, quickly, easily, seemlessly
+[Hackathon submission](https://devpost.com/software/crypto-phone-trader)  
+
+Trade crypto from your phone, quickly, easily, seemlessly, using binance and twilio  
 
 ## How to use
 Create a binance account, and get the apikey and apisecret. Sign up using the following command:
